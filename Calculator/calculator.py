@@ -14,7 +14,7 @@ def operaciones():
     num1 = solicitarNumero()
     num2 = solicitarNumero()
     print("Números elegidos: ",num1," y ",num2,)
-    waitForReturn()
+    waitForReturn(0)
     delimitar(0)
     print('''   Al igual que en otros lenguajes de programación, pueden utilizarse operaciones básicas: 
             Suma: + 
@@ -31,6 +31,7 @@ def operaciones():
             ''',num1,''' / ''',num2,''' = ''',num1/num2,'''
             ''')
     delimitar(1)
+    waitForReturn(1)
     print('''   Vale notar que la división clásica (con "/") devuelve un número flotante.
     Para obtener sólo la parte entera del cociente, debe utilizarse la división piso (con "//")
             División piso: //
@@ -46,12 +47,14 @@ def operaciones():
             num1 = num2 * (num1 // num2) + num1 % num2
             ''',num1,''' = ''',num2,''' * ''',num1//num2,''' +''',num1%num2)
     delimitar(1)
+    waitForReturn(1)
     print('''   Una operación que en otros lenguajes de programación requiere importar una librería, pero que 
     en python viene de forma predeterminada, es la potencia.
             Potencia: **
              Ej: 
              ''',num1,''' ** ''',num2,''' = ''',num1**num2)
     delimitar(1)
+    waitForReturn(1)
     print('''Finalmente, los paréntesis permiten establecer la prioridad de las operaciones:
             Ej: 
             ''',num1,''' + ''',num2,''' / ''',num2,''' = ''',num1+num2/num2,'''
@@ -66,9 +69,12 @@ def delimitar(t):
     else: 
         print("\\____________________________________________________/")
 
-def waitForReturn():
+def waitForReturn(op):
     try:
-        input("Presione \'Enter\' para continuar...")
+        if op == 0:
+            input("Presione \'Enter\' para continuar...")
+        else:
+            input()
     except SyntaxError:
         pass
 
@@ -76,4 +82,4 @@ if __name__ == '__main__':
     print("Para utilizar Python como una calculadora es necesario conocer algunos detalles: ")
     
     operaciones()
-    waitForReturn()
+    waitForReturn(0)
